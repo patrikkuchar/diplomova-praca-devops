@@ -17,13 +17,14 @@ Docker Desktop obsahuje Docker Compose, takže po inštalácii Docker Desktop bu
 
 ## Inštrukcie na Spustenie
 
-1. **Klónovanie repository**:  
-   Najskôr si skopírujte tento projekt do vášho lokálneho počítača:
-   ```bash
-   git clone https://github.com/patrikkuchar/diplomova-praca-devops.git
-   cd diplomova-praca-devops
+### 1. Klónovanie repository  
+Najskôr si skopírujte tento projekt do vášho lokálneho počítača:
+```bash
+git clone https://github.com/patrikkuchar/diplomova-praca-devops.git
+cd diplomova-praca-devops
+ ```
 
-## 2. Spustenie Docker Compose
+### 2. Spustenie Docker Compose
 
 Spustite projekt v oddelených kontajneroch pomocou príkazu:
 
@@ -49,6 +50,6 @@ Ak chcete zastaviť kontajnery, použite:
 docker-compose down
 ```
 
-## 3. Otvorenie Aplikácie
+### 3. Otvorenie Aplikácie
 
 Po úspešnom spustení kontajnerov môžete otvoriť aplikáciu vo vašom prehliadači na adrese [http://localhost:4200](http://localhost:4200).
