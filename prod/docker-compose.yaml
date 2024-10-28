@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  angular-frontend:
+    image: patrikkuchar/diplomovka-fe-app:latest
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+
+  backend:
+    image: patrikkuchar/diplomovka-be-app:latest
+    ports:
+      - "8085:8085"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/diplomovka
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=kuhar
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PORT=6379
+    depends_on:
+      - postgres
+      - redis
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=diplomovka
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=kuhar
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
